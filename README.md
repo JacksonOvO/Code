@@ -1,19 +1,20 @@
 # 嵌入式开发常用英语词汇与术语手册
 # Embedded Development English Vocabulary & Terminology Handbook
 
-> 🎯 学习目标：快速掌握嵌入式开发场景下的专业英语，轻松应对全英文IDE（如IAR）、技术文档、国际社区交流
+> 🎯 学习目标：快速掌握嵌入式开发场景下的专业英语，轻松应对全英文IDE、技术文档、国际社区交流
 
 ---
 
 ## 📚 学习指南 | Study Guide
+
 ### 学习优先级建议：
-1. **⭐ 核心高频词**：IDE操作、常用菜单、基础术语（先搞定IAR里天天见的词汇）
+1. **⭐ 核心高频词**：IDE操作、常用菜单、基础术语（先搞定常用IDE里天天见的词汇）
 2. **⭐⭐ 领域术语**：硬件、编程、协议相关词汇（理解技术文档必备）
 3. **⭐⭐⭐ 扩展词汇**：性能、调试、电源管理等进阶词汇（深入学习使用）
 
 ### 记忆技巧：
 - 看到英文先想对应的中文含义，不用刻意背拼写
-- 多用几次IAR自然就记住高频操作词汇
+- 多用几次IDE自然就记住高频操作词汇
 - 遇到不懂的词直接查这个手册，比百度翻译更准确
 
 ---
@@ -68,7 +69,157 @@
 
 ---
 
+## 🔨 KEIL MDK 常用操作词汇 | KEIL MDK Common Operation Terms
+
+| 英文 | 中文含义 | 场景说明 |
+|------|----------|----------|
+| **File 菜单** | | |
+| New Project | 新建工程 | 创建新工程 |
+| Open Project | 打开工程 | 打开已有工程 |
+| Save Project | 保存工程 | 保存工程配置 |
+| **Project 菜单** | | |
+| Manage Project Items | 管理工程项 | 添加/移除文件到工程 |
+| Options for Target | 目标选项 | 工程配置（最重要的菜单！） |
+| Build Target | 编译目标 | 编译当前目标 |
+| Rebuild All Target Files | 全部重新编译 | 重新编译整个工程 |
+| Clean Target | 清理目标 | 删除编译生成的中间文件 |
+| **Flash 菜单** | | |
+| Download | 下载 | 下载程序到芯片 |
+| Erase | 擦除 | 擦除芯片Flash |
+| Configure Flash Tools | 配置Flash工具 | 设置下载器 |
+| **Debug 菜单** | | |
+| Start/Stop Debug Session | 开始/停止调试会话 | 进入/退出调试模式 |
+| Run | 运行 | 全速运行程序 |
+| Stop | 停止 | 停止运行 |
+| Reset | 复位 | 复位芯片 |
+| Step | 单步 | 执行一行代码 |
+| Step Over | 单步跳过 | 执行一行代码，不进入函数 |
+| Step Out | 单步跳出 | 跳出当前函数 |
+| Run to Cursor Line | 运行到光标行 | 运行到光标所在行 |
+| **Peripherals 菜单** | | |
+| System Viewer | 系统查看器 | 查看外设寄存器 |
+| Function Editor | 功能编辑器 | 编辑调试函数 |
+| **Utilities 菜单** | | |
+| Settings | 设置 | 下载配置设置 |
+
+---
+
+## 📝 VSCode 常用操作词汇 | VSCode Common Operation Terms
+
+| 英文 | 中文含义 | 场景说明 |
+|------|----------|----------|
+| **File 菜单** | | |
+| New File | 新建文件 | 创建新文件 |
+| Open File | 打开文件 | 打开单个文件 |
+| Open Folder | 打开文件夹 | 打开项目文件夹 |
+| Save | 保存 | 保存当前文件 |
+| Save As | 另存为 | 另存为新文件 |
+| **Edit 菜单** | | |
+| Undo | 撤销 | 撤销上一步操作 |
+| Redo | 重做 | 恢复撤销的操作 |
+| Find | 查找 | 查找文本 |
+| Replace | 替换 | 替换文本 |
+| Find in Files | 在文件中查找 | 搜索整个项目 |
+| **View 菜单** | | |
+| Explorer | 资源管理器 | 显示项目文件结构 |
+| Search | 搜索 | 搜索符号/文本 |
+| Source Control | 源代码管理 | Git控制面板 |
+| Debug | 调试 | 调试视图 |
+| Terminal | 终端 | 集成终端 |
+| Output | 输出 | 输出面板 |
+| Problems | 问题 | 显示编译错误/警告 |
+| **Go 菜单** | | |
+| Go to File | 跳转到文件 | 快速打开文件 |
+| Go to Symbol | 跳转到符号 | 跳转到函数/变量定义 |
+| Go to Definition | 跳转到定义 | 跳转到定义位置 |
+| Go to Implementation | 跳转到实现 | 跳转到实现位置 |
+| Peek Definition | 速览定义 | 预览定义内容 |
+| **Debug 菜单** | | |
+| Start Debugging | 开始调试 | 启动调试 |
+| Stop Debugging | 停止调试 | 停止调试 |
+| Restart Debugging | 重启调试 | 重新开始调试 |
+| Step Into | 单步进入 | 进入函数 |
+| Step Over | 单步跳过 | 跳过函数 |
+| Step Out | 单步跳出 | 跳出函数 |
+| Continue | 继续 | 继续运行 |
+| **Terminal 菜单** | | |
+| New Terminal | 新建终端 | 创建新终端 |
+| Run Task | 运行任务 | 执行任务 |
+| Configure Tasks | 配置任务 | 编辑任务配置 |
+
+---
+
+## 🔧 ESP-IDF 常用操作词汇 | ESP-IDF Common Operation Terms
+
+| 英文 | 中文含义 | 场景说明 |
+|------|----------|----------|
+| **idf.py 命令** | | |
+| create-project | 创建工程 | 创建新ESP-IDF项目 |
+| menuconfig | 菜单配置 | 打开项目配置菜单 |
+| build | 编译 | 编译整个项目 |
+| flash | 烧录 | 烧录程序到芯片 |
+| monitor | 监视器 | 打开串口监视器 |
+| erase-flash | 擦除Flash | 擦除芯片Flash |
+| **配置术语** | | |
+| Kconfig | 内核配置 | ESP-IDF的配置系统 |
+| sdkconfig | SDK配置 | 项目特定配置 |
+| partition table | 分区表 | Flash分区配置 |
+| boot loader | 引导加载器 | ESP-IDF启动程序 |
+| **组件术语** | | |
+| component | 组件 | ESP-IDF模块化代码单元 |
+| driver | 驱动 | 硬件外设驱动 |
+| esp-idf components | ESP-IDF组件 | 官方提供的功能组件 |
+| **常用IDF函数** | | |
+| esp_restart | 重启 | 软重启芯片 |
+| esp_log_level_set | 设置日志级别 | 配置日志输出级别 |
+| esp_err_t | 错误类型 | ESP错误返回值 |
+
+---
+
+## 🔌 调试器常用词汇 | Debugger Common Terms
+
+### J-Link / ST-Link 通用
+
+| 英文 | 中文含义 | 场景说明 |
+|------|----------|----------|
+| Connect | 连接 | 调试器连接芯片 |
+| Disconnect | 断开 | 断开调试器连接 |
+| Reset | 复位 | 复位芯片 |
+| Halt | 暂停 | 暂停程序运行 |
+| Resume | 恢复 | 恢复程序运行 |
+| Erase | 擦除 | 擦除芯片Flash |
+| Program | 编程 | 烧录程序 |
+| Verify | 验证 | 验证烧录内容 |
+| **SWD 接口** | | |
+| SWDIO | 双向数据线 | Serial Wire Debug数据线 |
+| SWCLK | 时钟线 | Serial Wire Debug时钟线 |
+| **JTAG 接口** | | |
+| TDI | 数据输入 | JTAG数据输入 |
+| TDO | 数据输出 | JTAG数据输出 |
+| TCK | 时钟 | JTAG时钟 |
+| TMS | 模式选择 | JTAG模式选择 |
+
+---
+
+## 🛠️ 构建工具常用词汇 | Build Tools Common Terms
+
+| 英文 | 中文含义 | 场景说明 |
+|------|----------|----------|
+| Makefile | Make构建文件 | 自动化编译脚本 |
+| CMake | CMake构建工具 | 生成Makefile的工具 |
+| make | 构建命令 | 执行编译 |
+| gcc | GNU编译器 | C/C++编译器 |
+| gdb | 调试器 | GNU调试工具 |
+| arm-none-eabi-gcc | ARM交叉编译器 | 编译ARM Cortex-M代码 |
+| arm-none-eabi-gdb | ARM调试器 | 调试ARM程序 |
+| ninja | 构建系统 | 高速构建工具 |
+| cmake .. | 配置构建 | 运行CMake配置 |
+| make -j4 | 多线程编译 | 使用4个线程并行编译 |
+
+---
+
 ## 📦 硬件术语 | Hardware Terms
+
 | 英文 | 中文 | 说明 |
 |------|------|------|
 | MCU (Microcontroller Unit) | 微控制器 / 单片机 | 嵌入式系统核心芯片，比如STM32 |
@@ -97,6 +248,7 @@
 ---
 
 ## 💻 编程术语 | Programming Terms
+
 | 英文 | 中文 | 说明 |
 |------|------|------|
 | Firmware | 固件 | 跑在嵌入式设备上的程序 |
@@ -124,6 +276,7 @@
 ---
 
 ## 🔌 通信协议 | Communication Protocols
+
 | 英文 | 中文 | 说明 |
 |------|------|------|
 | CAN (Controller Area Network) | 控制器局域网 | 汽车、工业领域常用的可靠通信协议 |
@@ -144,6 +297,7 @@
 ---
 
 ## ⚡ 性能术语 | Performance Terms
+
 | 英文 | 中文 | 说明 |
 |------|------|------|
 | Latency | 延迟 | 从请求到响应的时间 |
@@ -166,6 +320,7 @@
 ---
 
 ## 🔋 电源管理 | Power Management
+
 | 英文 | 中文 | 说明 |
 |------|------|------|
 | Low Power Mode | 低功耗模式 | 降低功耗的工作模式 |
@@ -182,6 +337,7 @@
 ---
 
 ## 🐛 调试术语 | Debugging Terms
+
 | 英文 | 中文 | 说明 |
 |------|------|------|
 | Breakpoint | 断点 | 调试时程序暂停的位置 |
@@ -198,6 +354,7 @@
 ---
 
 ## 📝 常用命令与描述 | Common Commands & Descriptions
+
 | 英文 | 中文 | 说明 |
 |------|------|------|
 | Reset | 复位 | 重启芯片/外设 |
@@ -214,9 +371,22 @@
 ---
 
 ## 💡 学习计划建议 | Study Plan Suggestion
-1. **第一周**：把IAR常用操作词汇全部记住，做到看到英文就知道是什么意思
+
+1. **第一周**：把常用IDE操作词汇全部记住，做到看到英文就知道是什么意思
 2. **第二周**：熟悉硬件术语，结合手里的开发板对照学习
 3. **第三周**：掌握编程术语，写代码的时候遇到不懂的词查这个手册
 4. **后续**：遇到新的词汇随时添加到这个手册里，慢慢积累
 
+---
+
+## 🔗 相关资源 | Related Resources
+
+- [IAR Embedded Workbench 官方文档](https://www.iar.com/)
+- [KEIL MDK 官方文档](https://www.keil.com/)
+- [VSCode 官方文档](https://code.visualstudio.com/docs)
+- [ESP-IDF 官方文档](https://docs.espressif.com/)
+
+---
+
 *Last updated: 2026-03-11*
+*Contributions welcome! Please submit PR on GitHub.*
