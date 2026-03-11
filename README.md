@@ -7,6 +7,20 @@
 
 ## 📚 学习指南 | Study Guide
 
+### 为什么学嵌入式英语很重要？
+
+嵌入式开发是一个国际化程度非常高的领域：
+- **IDE全是英文**：IAR、KEIL、STM32CubeIDE 全部是英文界面
+- **芯片手册是英文**：datasheet、reference manual 都是英文
+- **技术社区是英文**：Stack Overflow、GitHub、Reddit
+- **开源项目是英文**：FreeRTOS、Linux、ESP-IDF 文档
+
+掌握这些词汇，你就能：
+- 独立阅读芯片手册，不再依赖中文翻译
+- 使用英文 IDE，提高开发效率
+- 参与国际技术社区交流
+- 阅读开源项目源码
+
 ### 学习优先级建议：
 1. **⭐ 核心高频词**：IDE操作、常用菜单、基础术语（先搞定常用IDE里天天见的词汇）
 2. **⭐⭐ 领域术语**：硬件、编程、协议相关词汇（理解技术文档必备）
@@ -16,306 +30,543 @@
 - 看到英文先想对应的中文含义，不用刻意背拼写
 - 多用几次IDE自然就记住高频操作词汇
 - 遇到不懂的词直接查这个手册，比百度翻译更准确
+- 建议搭配实际项目学习，边做边记效果最好
 
 ---
 
-## 🖥️ IAR 常用操作词汇 | IAR Common Operation Terms
+## 🖥️ IAR Embedded Workbench 常用操作词汇
 > 🔴 最高优先级：这些是IAR软件里天天见的菜单和选项，先记这些
 
-| 英文 | 中文含义 | 场景说明 |
-|------|----------|----------|
-| **File 菜单** | | |
-| New | 新建 | 新建工程、文件 |
+IAR 是嵌入式开发最常用的IDE之一，特别是做汽车电子、工控领域的同学几乎天天接触。
+
+### File 菜单
+| 英文 | 中文含义 | 实际使用场景 |
+|------|----------|--------------|
+| New | 新建 | 新建工程、源文件 |
 | Open | 打开 | 打开已有工程、文件 |
 | Close | 关闭 | 关闭当前文件/工程 |
-| Save | 保存 | 保存当前文件 |
-| Save All | 全部保存 | 保存所有修改的文件 |
+| Save | 保存 | 保存当前修改 |
+| Save All | 全部保存 | 批量保存所有修改 |
 | Exit | 退出 | 关闭IAR软件 |
-| **Edit 菜单** | | |
-| Undo | 撤销 | 撤销上一步操作 |
+
+### Edit 菜单
+| 英文 | 中文含义 | 实际使用场景 |
+|------|----------|--------------|
+| Undo | 撤销 | 撤销上一步误操作 |
 | Redo | 重做 | 恢复撤销的操作 |
-| Cut | 剪切 | 剪切选中内容 |
-| Copy | 复制 | 复制选中内容 |
-| Paste | 粘贴 | 粘贴内容 |
-| Find | 查找 | 查找文本 |
-| Replace | 替换 | 替换文本 |
-| Go to Definition | 跳转到定义 | 跳转到函数/变量的定义位置 |
-| **Project 菜单** | | |
-| Add Files | 添加文件 | 往工程里添加源文件/头文件 |
-| Remove Files | 移除文件 | 从工程里移除文件 |
-| Options | 选项 | 工程配置（最重要的菜单！） |
-| Build | 编译 | 编译修改过的文件 |
-| Rebuild All | 全部重新编译 | 重新编译整个工程 |
+| Cut | 剪切 | 移动代码片段 |
+| Copy | 复制 | 复制代码片段 |
+| Paste | 粘贴 | 粘贴代码片段 |
+| Find | 查找 | 在文件中查找字符串 |
+| Replace | 替换 | 批量替换变量名 |
+| Find in Files | 在文件中查找 | 搜索整个工程 |
+| Go to Definition | 跳转到定义 | 快速定位函数/变量定义 |
+| Go to Declaration | 跳转到声明 | 查看函数声明 |
+| Next Bookmark | 下一个书签 | 快速导航 |
+| Toggle Bookmark | 切换书签 | 标记重要代码位置 |
+
+### Project 菜单
+| 英文 | 中文含义 | 实际使用场景 |
+|------|----------|--------------|
+| Add Files | 添加文件 | 把源文件添加到工程 |
+| Remove Files | 移除文件 | 从工程中移除文件 |
+| Add Group | 添加分组 | 组织工程文件结构 |
+| Add Project Connection | 添加调试连接 | 配置调试器 |
+| Options | 选项 | **最重要的菜单！** 配置芯片、编译器、优化选项 |
+| Build | 编译 | 只编译修改过的文件 |
+| Rebuild All | 全部重新编译 | 清理后重新编译整个工程 |
 | Clean | 清理 | 删除编译生成的中间文件 |
-| **Debug 菜单** | | |
+| Batch Build | 批量编译 | 编译多个配置 |
+
+### Debug 菜单
+| 英文 | 中文含义 | 实际使用场景 |
+|------|----------|--------------|
 | Download and Debug | 下载并调试 | 把程序下载到芯片并进入调试模式 |
 | Start Debugging | 开始调试 | 进入调试模式 |
 | Stop Debugging | 停止调试 | 退出调试模式 |
-| Step Into | 单步进入 | 执行一行代码，进入函数内部 |
-| Step Over | 单步跳过 | 执行一行代码，不进入函数内部 |
-| Step Out | 单步跳出 | 跳出当前函数 |
-| Run to Cursor | 运行到光标处 | 程序运行到光标所在行 |
-| Breakpoint | 断点 | 调试时程序暂停的位置 |
-| Toggle Breakpoint | 切换断点 | 添加/删除断点 |
-| Enable Breakpoint | 启用断点 | 打开断点功能 |
+| Step Into | 单步进入 | **高频使用** 进入函数内部 |
+| Step Over | 单步跳过 | **高频使用** 执行一行，不进入函数 |
+| Step Out | 单步跳出 | **高频使用** 执行完当前函数 |
+| Run to Cursor | 运行到光标 | 让程序跑到光标处暂停 |
+| Breakpoint | 断点 | **高频使用** 调试时暂停程序的位置 |
+| Toggle Breakpoint | 切换断点 | **高频使用** 添加/删除断点 |
+| Enable Breakpoint | 启用断点 | 暂时禁用断点 |
 | Disable Breakpoint | 禁用断点 | 关闭断点功能 |
-| **View 菜单** | | |
-| Workspace | 工作区 | 显示工程文件结构的窗口 |
-| Output | 输出窗口 | 显示编译、调试信息 |
-| Watch | 观察窗口 | 查看变量值 |
+| Watch | 观察窗口 | **高频使用** 查看变量值 |
+| Quick Watch | 快速观察 | 快速查看表达式值 |
+
+### View 菜单
+| 英文 | 中文含义 | 实际使用场景 |
+|------|----------|--------------|
+| Workspace | 工作区 | 显示工程文件结构 |
+| Output | 输出窗口 | 显示编译错误、调试信息 |
 | Memory | 内存窗口 | 查看芯片内存内容 |
-| Register | 寄存器窗口 | 查看外设寄存器值 |
+| Register | 寄存器窗口 | 查看CPU寄存器、外设寄存器 |
 | Call Stack | 调用栈 | 查看函数调用关系 |
+| Disassembly | 反汇编窗口 | 查看反汇编代码 |
+| Symbol Browser | 符号浏览器 | 查看所有函数、变量 |
+| Thread List | 线程列表 | 查看FreeRTOS任务列表 |
 
 ---
 
-## 🔨 KEIL MDK 常用操作词汇 | KEIL MDK Common Operation Terms
+## 🔨 KEIL MDK 常用操作词汇
 
-| 英文 | 中文含义 | 场景说明 |
-|------|----------|----------|
-| **File 菜单** | | |
-| New Project | 新建工程 | 创建新工程 |
+KEIL MDK 是 ARM Cortex-M 开发最流行的IDE，STM32开发几乎离不开它。
+
+### Project 菜单
+| 英文 | 中文含义 | 实际使用场景 |
+|------|----------|--------------|
+| New μVision Project | 新建工程 | 创建新KEIL工程 |
 | Open Project | 打开工程 | 打开已有工程 |
-| Save Project | 保存工程 | 保存工程配置 |
-| **Project 菜单** | | |
-| Manage Project Items | 管理工程项 | 添加/移除文件到工程 |
-| Options for Target | 目标选项 | 工程配置（最重要的菜单！） |
+| Manage Project Items | 管理工程项 | **高频使用** 添加/移除文件到工程 |
+| Options for Target | 目标选项 | **最重要** 配置芯片、时钟、调试器 |
 | Build Target | 编译目标 | 编译当前目标 |
 | Rebuild All Target Files | 全部重新编译 | 重新编译整个工程 |
-| Clean Target | 清理目标 | 删除编译生成的中间文件 |
-| **Flash 菜单** | | |
-| Download | 下载 | 下载程序到芯片 |
+| Clean Target | 清理目标 | 删除编译产物 |
+
+### Flash 菜单
+| 英文 | 中文含义 | 实际使用场景 |
+|------|----------|--------------|
+| Download | 下载 | 烧录程序到芯片 |
 | Erase | 擦除 | 擦除芯片Flash |
-| Configure Flash Tools | 配置Flash工具 | 设置下载器 |
-| **Debug 菜单** | | |
-| Start/Stop Debug Session | 开始/停止调试会话 | 进入/退出调试模式 |
+| Configure Flash Tools | 配置Flash工具 | 设置J-Link/ST-Link |
+
+### Debug 菜单
+| 英文 | 中文含义 | 实际使用场景 |
+|------|----------|--------------|
+| Start/Stop Debug Session | 开始/停止调试 | **高频** 进入/退出调试模式 |
 | Run | 运行 | 全速运行程序 |
 | Stop | 停止 | 停止运行 |
-| Reset | 复位 | 复位芯片 |
+| Reset | 复位 | **高频** 复位芯片 |
 | Step | 单步 | 执行一行代码 |
-| Step Over | 单步跳过 | 执行一行代码，不进入函数 |
-| Step Out | 单步跳出 | 跳出当前函数 |
-| Run to Cursor Line | 运行到光标行 | 运行到光标所在行 |
-| **Peripherals 菜单** | | |
+| Step Over | 单步跳过 | 不进入函数 |
+| Step Out | 单步跳出 | 执行完当前函数 |
+| Run to Cursor Line | 运行到光标行 | 运行到指定位置 |
+
+### Peripherals 菜单
+| 英文 | 中文含义 | 实际使用场景 |
+|------|----------|--------------|
 | System Viewer | 系统查看器 | 查看外设寄存器 |
 | Function Editor | 功能编辑器 | 编辑调试函数 |
-| **Utilities 菜单** | | |
-| Settings | 设置 | 下载配置设置 |
 
 ---
 
-## 📝 VSCode 常用操作词汇 | VSCode Common Operation Terms
+## 📝 VSCode 常用操作词汇
 
-| 英文 | 中文含义 | 场景说明 |
-|------|----------|----------|
-| **File 菜单** | | |
-| New File | 新建文件 | 创建新文件 |
-| Open File | 打开文件 | 打开单个文件 |
-| Open Folder | 打开文件夹 | 打开项目文件夹 |
-| Save | 保存 | 保存当前文件 |
-| Save As | 另存为 | 另存为新文件 |
-| **Edit 菜单** | | |
-| Undo | 撤销 | 撤销上一步操作 |
-| Redo | 重做 | 恢复撤销的操作 |
-| Find | 查找 | 查找文本 |
-| Replace | 替换 | 替换文本 |
-| Find in Files | 在文件中查找 | 搜索整个项目 |
-| **View 菜单** | | |
-| Explorer | 资源管理器 | 显示项目文件结构 |
-| Search | 搜索 | 搜索符号/文本 |
-| Source Control | 源代码管理 | Git控制面板 |
-| Debug | 调试 | 调试视图 |
-| Terminal | 终端 | 集成终端 |
-| Output | 输出 | 输出面板 |
-| Problems | 问题 | 显示编译错误/警告 |
-| **Go 菜单** | | |
-| Go to File | 跳转到文件 | 快速打开文件 |
-| Go to Symbol | 跳转到符号 | 跳转到函数/变量定义 |
-| Go to Definition | 跳转到定义 | 跳转到定义位置 |
-| Go to Implementation | 跳转到实现 | 跳转到实现位置 |
-| Peek Definition | 速览定义 | 预览定义内容 |
-| **Debug 菜单** | | |
-| Start Debugging | 开始调试 | 启动调试 |
-| Stop Debugging | 停止调试 | 停止调试 |
-| Restart Debugging | 重启调试 | 重新开始调试 |
-| Step Into | 单步进入 | 进入函数 |
-| Step Over | 单步跳过 | 跳过函数 |
-| Step Out | 单步跳出 | 跳出函数 |
-| Continue | 继续 | 继续运行 |
-| **Terminal 菜单** | | |
-| New Terminal | 新建终端 | 创建新终端 |
-| Run Task | 运行任务 | 执行任务 |
-| Configure Tasks | 配置任务 | 编辑任务配置 |
+VSCode 是现代开发首选，嵌入式结合 PlatformIO、ESP-IDF 很好用。
+
+### File 菜单
+| 英文 | 中文含义 | 快捷键 |
+|------|----------|--------|
+| New File | 新建文件 | Ctrl+N |
+| Open File | 打开文件 | Ctrl+O |
+| Open Folder | 打开文件夹 | Ctrl+K Ctrl+O |
+| Save | 保存 | Ctrl+S |
+| Save As | 另存为 | Ctrl+Shift+S |
+| Close Editor | 关闭编辑器 | Ctrl+W |
+
+### Edit 菜单
+| 英文 | 中文含义 | 快捷键 |
+|------|----------|--------|
+| Undo | 撤销 | Ctrl+Z |
+| Redo | 重做 | Ctrl+Y |
+| Cut | 剪切 | Ctrl+X |
+| Copy | 复制 | Ctrl+C |
+| Paste | 粘贴 | Ctrl+V |
+| Find | 查找 | Ctrl+F |
+| Replace | 替换 | Ctrl+H |
+| Find in Files | 在文件中查找 | Ctrl+Shift+F |
+| Replace in Files | 在文件中替换 | Ctrl+Shift+H |
+
+### View 菜单
+| 英文 | 中文含义 | 快捷键 |
+|------|----------|--------|
+| Explorer | 资源管理器 | Ctrl+B |
+| Search | 搜索 | Ctrl+Shift+F |
+| Source Control | 源代码管理 | Ctrl+Shift+G |
+| Debug | 调试 | Ctrl+Shift+D |
+| Terminal | 终端 | Ctrl+` |
+| Output | 输出 | Ctrl+Shift+U |
+| Problems | 问题面板 | Ctrl+Shift+M |
+| Extensions | 扩展 | Ctrl+Shift+X |
+
+### Go 菜单
+| 英文 | 中文含义 | 快捷键 |
+|------|----------|--------|
+| Go to File | 跳转到文件 | Ctrl+P |
+| Go to Symbol | 跳转到符号 | Ctrl+Shift+O |
+| Go to Definition | 跳转到定义 | F12 |
+| Go to Implementation | 跳转到实现 | Ctrl+F12 |
+| Peek Definition | 速览定义 | Alt+F12 |
+| Peek References | 速览引用 | Shift+F12 |
+| Go Back | 后退 | Alt+← |
+| Go Forward | 前进 | Alt+→ |
+
+### Debug 菜单
+| 英文 | 中文含义 | 快捷键 |
+|------|----------|--------|
+| Start Debugging | 开始调试 | F5 |
+| Stop Debugging | 停止调试 | Shift+F5 |
+| Restart Debugging | 重启调试 | Ctrl+Shift+F5 |
+| Step Into | 单步进入 | F11 |
+| Step Over | 单步跳过 | F10 |
+| Step Out | 单步跳出 | Shift+F11 |
+| Continue | 继续 | F5 |
+| Toggle Breakpoint | 切换断点 | F9 |
 
 ---
 
-## 🔧 ESP-IDF 常用操作词汇 | ESP-IDF Common Operation Terms
+## 🔧 ESP-IDF 常用操作词汇
 
-| 英文 | 中文含义 | 场景说明 |
+ESP-IDF 是乐鑫科技官方开发框架，适合ESP32开发。
+
+### idf.py 命令行
+| 英文 | 中文含义 | 使用场景 |
 |------|----------|----------|
-| **idf.py 命令** | | |
-| create-project | 创建工程 | 创建新ESP-IDF项目 |
-| menuconfig | 菜单配置 | 打开项目配置菜单 |
+| create-project | 创建工程 | 初始化新项目 |
+| menuconfig | 菜单配置 | 配置芯片选项、FreeRTOS等 |
 | build | 编译 | 编译整个项目 |
 | flash | 烧录 | 烧录程序到芯片 |
-| monitor | 监视器 | 打开串口监视器 |
-| erase-flash | 擦除Flash | 擦除芯片Flash |
-| **配置术语** | | |
-| Kconfig | 内核配置 | ESP-IDF的配置系统 |
-| sdkconfig | SDK配置 | 项目特定配置 |
-| partition table | 分区表 | Flash分区配置 |
-| boot loader | 引导加载器 | ESP-IDF启动程序 |
-| **组件术语** | | |
-| component | 组件 | ESP-IDF模块化代码单元 |
-| driver | 驱动 | 硬件外设驱动 |
-| esp-idf components | ESP-IDF组件 | 官方提供的功能组件 |
-| **常用IDF函数** | | |
-| esp_restart | 重启 | 软重启芯片 |
-| esp_log_level_set | 设置日志级别 | 配置日志输出级别 |
-| esp_err_t | 错误类型 | ESP错误返回值 |
+| monitor | 监视器 | 打开串口日志输出 |
+| erase-flash | 擦除Flash | 清除整个Flash |
+| partition-table | 分区表 | 查看/修改分区表 |
+| size | 尺寸分析 | 查看固件大小 |
+| fullclean | 完全清理 | 删除所有构建文件 |
+
+### 常用配置项 (menuconfig)
+| 英文 | 中文含义 |
+|------|----------|
+| Serial flasher config | 串口烧录配置 |
+| Bootloader config | 引导加载器配置 |
+| Partition Table | 分区表配置 |
+| FreeRTOS | 实时操作系统配置 |
+| Wi-Fi | Wi-Fi配置 |
+| BLE | 蓝牙配置 |
+| Component config | 组件配置 |
+
+### 常用ESP-IDF API
+| 英文 | 中文含义 |
+|------|----------|
+| esp_restart | 软重启芯片 |
+| esp_log_level_set | 设置日志级别 |
+| esp_err_t | 错误类型定义 |
+| esp_read_mac | 读取MAC地址 |
+| esp_wifi_init | 初始化WiFi |
+| esp_wifi_connect | 连接WiFi |
+| esp_timer_create | 创建定时器 |
+| xTaskCreatePinnedToCore | 创建任务（带核绑定） |
 
 ---
 
-## 🔌 调试器常用词汇 | Debugger Common Terms
+## 🖥️ STM32CubeIDE 常用操作词汇
 
-### J-Link / ST-Link 通用
+ST官方IDE，基于Eclipse，适合STM32开发。
 
-| 英文 | 中文含义 | 场景说明 |
-|------|----------|----------|
+| 英文 | 中文含义 | 实际使用场景 |
+|------|----------|--------------|
+| New STM32 Project | 新建STM32工程 | 创建新项目 |
+| Pinout & Configuration | 引脚配置 | 可视化配置GPIO、外设 |
+| Clock Configuration | 时钟配置 | 可视化配置系统时钟 |
+| Project Manager | 工程管理 | 项目设置 |
+| Generate Code | 生成代码 | 自动生成HAL库代码 |
+| Debug as | 调试方式 | 选择调试器 |
+
+---
+
+## 📚 Arduino IDE 常用操作词汇
+
+Arduino适合创客、入门学习。
+
+| 英文 | 中文含义 |
+|------|----------|
+| New Sketch | 新建 sketch |
+| Open | 打开 |
+| Save | 保存 |
+| Save As | 另存为 |
+| Upload | 上传 | 烧录程序 |
+| Upload Using Programmer | 编程器上传 | 使用外部编程器 |
+| Board | 板型 | 选择开发板 |
+| Port | 端口 | 选择串口 |
+| Library Manager | 库管理器 | 管理第三方库 |
+| Include Library | 包含库 | 添加头文件 |
+
+---
+
+## 🔌 调试器常用词汇
+
+### J-Link 调试器
+| 英文 | 中文含义 | 实际使用场景 |
+|------|----------|--------------|
 | Connect | 连接 | 调试器连接芯片 |
-| Disconnect | 断开 | 断开调试器连接 |
+| Disconnect | 断开 | 断开调试连接 |
 | Reset | 复位 | 复位芯片 |
 | Halt | 暂停 | 暂停程序运行 |
-| Resume | 恢复 | 恢复程序运行 |
+| Resume | 继续 | 恢复程序运行 |
 | Erase | 擦除 | 擦除芯片Flash |
-| Program | 编程 | 烧录程序 |
-| Verify | 验证 | 验证烧录内容 |
-| **SWD 接口** | | |
-| SWDIO | 双向数据线 | Serial Wire Debug数据线 |
-| SWCLK | 时钟线 | Serial Wire Debug时钟线 |
-| **JTAG 接口** | | |
-| TDI | 数据输入 | JTAG数据输入 |
-| TDO | 数据输出 | JTAG数据输出 |
-| TCK | 时钟 | JTAG时钟 |
-| TMS | 模式选择 | JTAG模式选择 |
+| Program | 编程 | 烧录固件 |
+| Verify | 验证 | 校验烧录内容 |
+
+### ST-Link 调试器
+| 英文 | 中文含义 |
+|------|----------|
+| Connect | 连接 |
+| Disconnect | 断开 |
+| Full Chip Erase | 全片擦除 |
+| Option Bytes | 选项字节 |
+| Target Voltage | 目标电压 |
+
+### 调试接口
+| 英文 | 中文含义 |
+|------|----------|
+| SWD (Serial Wire Debug) | 串行线调试 | 两线调试接口（SWDIO + SWCLK） |
+| JTAG (Joint Test Action Group) | 联合测试行动组 | 传统四线/五线调试接口 |
+| SWDIO | 双向数据线 |
+| SWCLK | 时钟线 |
+| TDI | JTAG数据输入 |
+| TDO | JTAG数据输出 |
+| TCK | JTAG时钟 |
+| TMS | JTAG模式选择 |
 
 ---
 
-## 🛠️ 构建工具常用词汇 | Build Tools Common Terms
+## 🛠️ 构建工具常用词汇
 
-| 英文 | 中文含义 | 场景说明 |
-|------|----------|----------|
-| Makefile | Make构建文件 | 自动化编译脚本 |
-| CMake | CMake构建工具 | 生成Makefile的工具 |
-| make | 构建命令 | 执行编译 |
-| gcc | GNU编译器 | C/C++编译器 |
-| gdb | 调试器 | GNU调试工具 |
-| arm-none-eabi-gcc | ARM交叉编译器 | 编译ARM Cortex-M代码 |
-| arm-none-eabi-gdb | ARM调试器 | 调试ARM程序 |
-| ninja | 构建系统 | 高速构建工具 |
-| cmake .. | 配置构建 | 运行CMake配置 |
-| make -j4 | 多线程编译 | 使用4个线程并行编译 |
+### Makefile/CMake
+| 英文 | 中文含义 |
+|------|----------|
+| Makefile | 构建脚本文件 |
+| CMake | 构建配置工具 |
+| make | 执行编译 |
+| cmake .. | 运行CMake配置 |
+| make -j4 | 多线程并行编译 |
+| target | 编译目标 |
+| prerequisite | 依赖文件 |
+| recipe | 构建命令 |
+
+### GCC 工具链
+| 英文 | 中文含义 |
+|------|----------|
+| gcc | C编译器 |
+| g++ | C++编译器 |
+| gdb | 调试器 |
+| ld | 链接器 |
+| objcopy | 格式转换工具 |
+| arm-none-eabi-gcc | ARM Cortex-M交叉编译器 |
+| arm-none-eabi-gdb | ARM调试器 |
+| arm-none-eabi-size | 查看文件大小 |
+
+### Ninja 构建系统
+| 英文 | 中文含义 |
+|------|----------|
+| ninja | 高速构建工具 |
+| ninja -t targets | 查看所有构建目标 |
+| ninja -t graph | 查看依赖图 |
 
 ---
 
 ## 📦 硬件术语 | Hardware Terms
 
+### 芯片分类
 | 英文 | 中文 | 说明 |
 |------|------|------|
-| MCU (Microcontroller Unit) | 微控制器 / 单片机 | 嵌入式系统核心芯片，比如STM32 |
-| MPU (Microprocessor Unit) | 微处理器 | 跑操作系统的高性能芯片，比如ARM Cortex-A系列 |
-| SoC (System on Chip) | 片上系统 | 集成了CPU、外设、接口的单芯片 |
-| GPIO (General Purpose Input/Output) | 通用输入输出 | 最常用的外设，可配置为输入/输出引脚 |
-| UART (Universal Asynchronous Receiver-Transmitter) | 通用异步收发传输器 | 串口通信，常用作打印日志 |
-| SPI (Serial Peripheral Interface) | 串行外设接口 | 同步串行通信，速度快，常用于连接Flash、显示屏 |
-| I2C (Inter-Integrated Circuit) | 内部集成电路 | 半双工同步通信，两根线，常用于连接传感器 |
-| ADC (Analog-to-Digital Converter) | 模数转换器 | 把模拟电压转换成数字值 |
-| DAC (Digital-to-Analog Converter) | 数模转换器 | 把数字值转换成模拟电压 |
-| PWM (Pulse Width Modulation) | 脉冲宽度调制 | 控制电机、LED亮度常用技术 |
-| RTC (Real-Time Clock) | 实时时钟 | 记录时间的外设，掉电也能走 |
-| EEPROM | 电可擦可编程只读存储器 | 小容量非易失性存储，掉电数据不丢 |
-| Flash Memory | 闪存 | 大容量非易失性存储，存程序和数据 |
-| SRAM (Static Random Access Memory) | 静态随机存取存储器 | 速度快，容量小，掉电数据丢 |
-| DRAM (Dynamic Random Access Memory) | 动态随机存取存储器 | 速度较快，容量大，需要刷新 |
-| Crystal Oscillator | 晶振 | 给芯片提供时钟源 |
-| Voltage Regulator | 稳压器 | 稳定电压，给芯片供电 |
-| Pull-up Resistor | 上拉电阻 | 把引脚电平默认拉到高电平 |
-| Pull-down Resistor | 下拉电阻 | 把引脚电平默认拉到低电平 |
-| Interrupt | 中断 | 外部事件触发CPU暂停当前任务处理事件 |
-| DMA (Direct Memory Access) | 直接内存访问 | 外设直接读写内存，不用CPU参与 |
-| Watchdog Timer | 看门狗定时器 | 程序跑飞时自动复位芯片 |
+| MCU (Microcontroller Unit) | 微控制器 | 嵌入式核心芯片，内部集成CPU+RAM+Flash+外设 |
+| MPU (Microprocessor Unit) | 微处理器 | 仅包含CPU，需要外接内存和外设 |
+| SoC (System on Chip) | 片上系统 | 高度集成，CPU+外设+无线等 |
+| CPU (Central Processing Unit) | 中央处理器 | 芯片的运算核心 |
+| DSP (Digital Signal Processor) | 数字信号处理器 | 专用于信号处理 |
+| FPGA (Field Programmable Gate Array) | 现场可编程门阵列 | 可编程硬件 |
+
+### 存储器
+| 英文 | 中文 | 说明 |
+|------|------|------|
+| Flash Memory | 闪存 | 非易失性存储，存放程序代码 |
+| SRAM (Static RAM) | 静态随机存取存储器 | 速度快，掉电丢失，存放变量 |
+| DRAM (Dynamic RAM) | 动态随机存取存储器 | 需要周期性刷新 |
+| EEPROM | 电可擦除可编程只读存储器 | 非易失性，可擦写 |
+| OTP (One-Time Programmable) | 一次性可编程 | 只能烧写一次 |
+
+### 通信接口
+| 英文 | 中文 | 说明 |
+|------|------|------|
+| GPIO (General Purpose Input/Output) | 通用输入输出 | 最基本的外设 |
+| UART (Universal Asynchronous Receiver/Transmitter) | 通用异步收发器 | 串口，RS232/RS485 |
+| SPI (Serial Peripheral Interface) | 串行外设接口 | 高速同步串行 |
+| I2C (Inter-Integrated Circuit) | 集成电路互连 | 两线制I2C |
+| I2S (Inter-IC Sound) | 集成电路音频 | 音频数据传输 |
+| USB (Universal Serial Bus) | 通用串行总线 | 高速外设接口 |
+| CAN (Controller Area Network) | 控制器局域网 | 汽车、工业总线 |
+| Ethernet | 以太网 | 有线网络 |
+| Wi-Fi | 无线局域网 | 无线网络 |
+| Bluetooth | 蓝牙 | 短距离无线 |
+| BLE (Bluetooth Low Energy) | 低功耗蓝牙 | 物联网蓝牙 |
+
+### 模拟外设
+| 英文 | 中文 | 说明 |
+|------|------|------|
+| ADC (Analog-to-Digital Converter) | 模数转换器 | 模拟→数字 |
+| DAC (Digital-to-Analog Converter) | 数模转换器 | 数字→模拟 |
+| PWM (Pulse Width Modulation) | 脉宽调制 | 电机调速、LED调光 |
+| Comparato | 比较器 | 比较两个电压 |
+| Amplifier | 放大器 | 信号放大 |
+
+### 定时器
+| 英文 | 中文 | 说明 |
+|------|------|------|
+| Timer | 定时器 | 定时、计数 |
+| RTC (Real-Time Clock) | 实时时钟 | 日历时间，掉电走时 |
+| Watchdog | 看门狗 | 系统超时复位 |
+| SysTick | 系统滴答定时器 | ARM Cortex-M内核定时器 |
+
+### 其他外设
+| 英文 | 中文 | 说明 |
+|------|------|------|
+| DMA (Direct Memory Access) | 直接内存访问 | 外设与内存直接传输 |
+| CRC (Cyclic Redundancy Check) | 循环冗余校验 | 数据校验 |
+| RNG (Random Number Generator) | 随机数生成器 | 产生随机数 |
+| TRNG (True Random Number Generator) | 真随机数生成器 |
+| Crypto | 加密引擎 | 硬件加解密 |
+
+### 电源管理
+| 英文 | 中文 | 说明 |
+|------|------|------|
+| LDO (Low Dropout Regulator) | 低压差稳压器 | 线性稳压 |
+| DC-DC | 直流-直流转换器 | 开关电源 |
+| BOD (Brown-Out Detector) | 欠压检测 | 电压过低复位 |
+| Power Gating | 电源门控 | 关闭模块电源 |
+| Clock Gating | 时钟门控 | 关闭模块时钟 |
 
 ---
 
 ## 💻 编程术语 | Programming Terms
 
+### 软件架构
 | 英文 | 中文 | 说明 |
 |------|------|------|
-| Firmware | 固件 | 跑在嵌入式设备上的程序 |
-| Bootloader | 引导加载程序 | 芯片上电后第一个运行的程序，用来升级固件 |
-| Driver | 驱动程序 | 操作硬件外设的代码 |
-| HAL (Hardware Abstraction Layer) | 硬件抽象层 | STM32等厂商提供的封装好的硬件操作库 |
-| RTOS (Real-Time Operating System) | 实时操作系统 | 嵌入式常用操作系统，比如FreeRTOS、UCOS |
-| FreeRTOS | 自由实时操作系统 | 最常用的开源RTOS |
-| Embedded Linux | 嵌入式Linux | 跑在MPU上的Linux系统，适合复杂应用 |
-| Bare-metal | 裸机 | 没有操作系统，直接操作寄存器 |
-| Register | 寄存器 | 外设的控制单元，通过读写寄存器控制外设 |
-| Bitwise Operation | 位运算 | 按位与/或/非/移位操作，嵌入式常用 |
-| Pointer | 指针 | C语言核心，直接操作内存地址 |
-| Memory Mapping | 内存映射 | 把外设寄存器地址映射到内存地址空间 |
-| Stack | 栈 | 存局部变量、函数调用信息，自动分配释放 |
-| Heap | 堆 | 动态内存分配区域，需要手动管理 |
-| Volatile Keyword | volatile关键字 | 告诉编译器不要优化该变量，常用在中断和寄存器操作 |
-| Inline Assembly | 内联汇编 | C代码里嵌入汇编代码，操作特殊寄存器 |
-| Cross-compiler | 交叉编译器 | 在PC上编译生成目标芯片能运行的代码 |
-| Toolchain | 工具链 | 编译、链接、调试工具的集合 |
-| Linker Script | 链接脚本 | 定义程序在内存中的分布 |
-| Makefile | Make构建文件 | 自动化编译脚本 |
-| CMake | CMake构建工具 | 生成Makefile的工具，更方便管理大型工程 |
+| Firmware | 固件 | 嵌入式设备上的软件 |
+| Bootloader | 引导程序 | 芯片启动后第一个程序 |
+| Application | 应用程序 | 主应用程序 |
+| Driver | 驱动程序 | 操作硬件的代码 |
+| HAL (Hardware Abstraction Layer) | 硬件抽象层 | 硬件操作封装库 |
+| LL (Low Layer) | 低层驱动 | 直接操作寄存器 |
+| BSP (Board Support Package) | 板级支持包 | 开发板相关代码 |
+
+### 操作系统
+| 英文 | 中文 | 说明 |
+|------|------|------|
+| RTOS (Real-Time Operating System) | 实时操作系统 |
+| FreeRTOS | 免费RTOS | 最流行的嵌入式RTOS |
+| RT-Thread | 国产RTOS | 国产实时操作系统 |
+| ucOS | 微控制器操作系统 | 商业RTOS |
+| Embedded Linux | 嵌入式Linux | 运行在MPU上的Linux |
+| Zephyr | Zephyr系统 | Linux基金会RTOS |
+
+### 编程概念
+| 英文 | 中文 | 说明 |
+|------|------|------|
+| Bare-metal | 裸机编程 | 无OS，直接操作硬件 |
+| Register | 寄存器 | 外设控制单元 |
+| Bitwise Operation | 位运算 | &, |, ^, ~, <<, >> |
+| Bit Banding | 位带操作 | Cortex-M特色功能 |
+| Interrupt | 中断 | 异步事件处理 |
+| ISR (Interrupt Service Routine) | 中断服务程序 |
+| Vector Table | 中断向量表 | 中断处理函数列表 |
+| Priority | 中断优先级 | 决定中断处理顺序 |
+| Nested Vectored Interrupt Controller | 嵌套向量中断控制器 | ARM Cortex-M中断控制器 |
+
+### 内存管理
+| 英文 | 中文 | 说明 |
+|------|------|------|
+| Stack | 栈 | 函数调用、局部变量 |
+| Heap | 堆 | 动态内存分配 |
+| Data Section | 数据段 | 存放全局变量 |
+| BSS Section | BSS段 | 存放未初始化变量 |
+| Text Section | 代码段 | 存放程序代码 |
+| Memory Map | 内存映射 | 地址空间分布 |
+| Linker Script | 链接脚本 | 定义内存布局 |
 
 ---
 
 ## 🔌 通信协议 | Communication Protocols
 
+### 有线通信
 | 英文 | 中文 | 说明 |
 |------|------|------|
-| CAN (Controller Area Network) | 控制器局域网 | 汽车、工业领域常用的可靠通信协议 |
-| LIN (Local Interconnect Network) | 本地互联网络 | 汽车领域低成本低速通信协议 |
-| RS-232 | 串行通信接口 | 老式串口，常用作调试 |
-| RS-485 | 差分串行通信接口 | 长距离、抗干扰强的串行通信 |
-| USB (Universal Serial Bus) | 通用串行总线 | 高速通信接口，连接电脑、外设 |
-| Ethernet | 以太网 | 有线网络通信 |
-| Wi-Fi | 无线保真 | 无线网络通信 |
-| Bluetooth | 蓝牙 | 短距离无线通信 |
-| BLE (Bluetooth Low Energy) | 蓝牙低功耗 | 低功耗蓝牙，适合物联网设备 |
-| ZigBee | 紫蜂协议 | 低功耗、低速率物联网通信协议 |
-| LoRa | 长距离无线通信 | 低功耗长距离无线通信，适合物联网 |
-| MQTT | 消息队列遥测传输协议 | 物联网常用的轻量级消息协议 |
-| HTTP | 超文本传输协议 | 网络通信基础协议 |
-| WebSocket | 全双工通信协议 | 双向实时通信协议 |
+| UART | 异步串口 | 最常用的调试接口 |
+| RS-232 | 串口标准 | 传统PC串口 |
+| RS-485 | 差分串口 | 工业总线 |
+| SPI | 同步串口 | 高速通信 |
+| I2C | 两线串口 | 传感器接口 |
+| USB | 通用串行总线 | 高速外设接口 |
+| CAN | 控制器局域网 | 汽车电子标准 |
+| LIN | 本地互联网络 | 汽车低速网络 |
+| Ethernet | 以太网 | 有线网络 |
+| PCIe | 个人计算机express | 高速总线 |
+
+### 无线通信
+| 英文 | 中文 | 说明 |
+|------|------|------|
+| Wi-Fi | 无线保真 | 高速无线网络 |
+| Bluetooth | 蓝牙 | 短距离通信 |
+| BLE | 低功耗蓝牙 | 物联网蓝牙 |
+| ZigBee | 紫蜂协议 | 低功耗Mesh网络 |
+| LoRa | 远距离无线电 | 超远距离低功耗 |
+| NB-IoT | 窄带物联网 | 蜂窝物联网 |
+| 4G/LTE | 第四代移动通信 | 高速蜂窝网络 |
+| 5G | 第五代移动通信 | 超高速蜂窝网络 |
+
+### 应用层协议
+| 英文 | 中文 | 说明 |
+|------|------|------|
+| MQTT | 消息队列遥测传输 | 物联网常用协议 |
+| HTTP | 超文本传输协议 | Web基础 |
+| WebSocket | 全双工通信 | 实时Web通信 |
+| CoAP | 约束应用协议 | 物联网轻量协议 |
+| Modbus | 工业通信协议 | 串口/TCP工业协议 |
+| REST | 表征状态转移 | Web服务架构 |
 
 ---
 
 ## ⚡ 性能术语 | Performance Terms
 
+### 实时性
 | 英文 | 中文 | 说明 |
 |------|------|------|
-| Latency | 延迟 | 从请求到响应的时间 |
-| Throughput | 吞吐量 | 单位时间内处理的数据量 |
-| Real-time | 实时 | 任务必须在规定时间内完成 |
-| Hard Real-time | 硬实时 | 严格时间限制，超时会导致严重后果 |
-| Soft Real-time | 软实时 | 宽松时间限制，超时影响不大 |
+| Real-time | 实时性 | 任务按时完成 |
+| Hard Real-time | 硬实时 | 必须按时完成 |
+| Soft Real-time | 软实时 | 偶尔超时可接受 |
 | Deterministic | 确定性 | 执行时间可预测 |
-| Time-slicing | 时间片 | RTOS调度任务的时间分配 |
-| Priority | 优先级 | 任务的重要程度，高优先级先执行 |
-| Preemption | 抢占 | 高优先级任务可以打断低优先级任务 |
-| Scheduling | 调度 | RTOS分配CPU时间给任务的算法 |
-| Context Switch | 上下文切换 | 任务切换时保存和恢复寄存器状态 |
-| Race Condition | 竞态条件 | 多个任务访问共享资源导致的不确定结果 |
-| Deadlock | 死锁 | 多个任务互相等待资源导致都无法执行 |
-| Starvation | 饥饿 | 低优先级任务一直得不到CPU执行 |
-| Buffer Overflow | 缓冲区溢出 | 写入数据超过缓冲区大小导致内存破坏 |
-| Memory Leak | 内存泄漏 | 动态分配的内存没有释放，导致内存越来越少 |
+| Jitter | 时抖 | 时间偏差 |
+
+### 资源相关
+| 英文 | 中文 | 说明 |
+|------|------|------|
+| Latency | 延迟 | 响应时间 |
+| Throughput | 吞吐量 | 单位时间处理量 |
+| Bandwidth | 带宽 | 传输速率 |
+| Footprint | 内存占用 | 代码/内存大小 |
+| Overhead | 开销 | 额外消耗 |
+
+### 任务调度
+| 英文 | 中文 | 说明 |
+|------|------|------|
+| Task | 任务 | RTOS中的执行单元 |
+| Thread | 线程 | 轻量级任务 |
+| Process | 进程 | 独立运行单元 |
+| Priority | 优先级 | 任务重要程度 |
+| Scheduling | 调度 | 分配CPU时间 |
+| Context Switch | 上下文切换 | 任务切换 |
+| Preemption | 抢占 | 高优先级打断低优先级 |
+| Time Slice | 时间片 | 轮转调度时间单位 |
+
+### 同步与互斥
+| 英文 | 中文 | 说明 |
+|------|------|------|
+| Mutex | 互斥锁 | 保护共享资源 |
+| Semaphore | 信号量 | 资源计数/同步 |
+| Critical Section | 临界区 | 不可中断代码段 |
+| Race Condition | 竞态条件 | 并发访问问题 |
+| Deadlock | 死锁 | 互相等待资源 |
+| Starvation | 饥饿 | 长期无法执行 |
 
 ---
 
@@ -323,16 +574,15 @@
 
 | 英文 | 中文 | 说明 |
 |------|------|------|
-| Low Power Mode | 低功耗模式 | 降低功耗的工作模式 |
-| Sleep Mode | 睡眠模式 | 关闭部分外设，CPU停止，唤醒快 |
-| Deep Sleep Mode | 深度睡眠模式 | 关闭大部分外设，功耗更低，唤醒慢 |
-| Standby Mode | 待机模式 | 最低功耗模式，只有少量电路工作 |
-| Power Consumption | 功耗 | 设备消耗的电量 |
-| Battery Life | 电池寿命 | 电池供电的工作时间 |
-| Dynamic Power | 动态功耗 | 电路工作时的功耗 |
-| Static Power | 静态功耗 | 电路不工作时的漏电流功耗 |
-| Power Gating | 电源门控 | 关闭不需要的模块的电源，降低功耗 |
-| Clock Gating | 时钟门控 | 关闭不需要的模块的时钟，降低功耗 |
+| Active Mode | 工作模式 | 全速运行 |
+| Sleep Mode | 睡眠模式 | CPU停止，外设工作 |
+| Deep Sleep | 深度睡眠 | 大部分关闭 |
+| Stop Mode | 停止模式 | 最小功耗 |
+| Standby Mode | 待机模式 | 最低功耗 |
+| Power Consumption | 功耗 | 单位时间耗电 |
+| Current | 电流 | 耗电大小 |
+| Voltage | 电压 | 供电电压 |
+| Battery Life | 电池寿命 | 续航时间 |
 
 ---
 
@@ -340,53 +590,81 @@
 
 | 英文 | 中文 | 说明 |
 |------|------|------|
-| Breakpoint | 断点 | 调试时程序暂停的位置 |
-| Watchpoint | 观察点 | 变量值改变时程序暂停 |
-| Step Into | 单步进入 | 执行一行代码，进入函数内部 |
-| Step Over | 单步跳过 | 执行一行代码，不进入函数内部 |
-| Step Out | 单步跳出 | 跳出当前函数 |
-| Call Stack | 调用栈 | 查看函数调用关系 |
-| Register Dump | 寄存器转储 | 打印所有寄存器的值 |
-| Core Dump | 核心转储 | 程序崩溃时保存的内存和寄存器状态 |
-| Trace | 跟踪 | 记录程序执行路径 |
-| Log | 日志 | 程序运行时打印的调试信息 |
-
----
-
-## 📝 常用命令与描述 | Common Commands & Descriptions
-
-| 英文 | 中文 | 说明 |
-|------|------|------|
-| Reset | 复位 | 重启芯片/外设 |
-| Initialize | 初始化 | 外设/模块的初始化配置 |
-| Configure | 配置 | 设置外设的参数 |
-| Enable | 使能 | 打开外设/功能 |
-| Disable | 禁用 | 关闭外设/功能 |
-| Read | 读取 | 读寄存器/内存/外设数据 |
-| Write | 写入 | 写寄存器/内存/外设数据 |
-| Poll | 轮询 | 循环查询外设状态 |
-| Interrupt-driven | 中断驱动 | 事件触发中断处理 |
-| Event-driven | 事件驱动 | 事件触发相应处理函数 |
+| Breakpoint | 断点 | 程序暂停点 |
+| Watchpoint | 观察点 | 变量变化暂停 |
+| Step | 单步 | 执行一行 |
+| Step Into | 进入函数 | |
+| Step Over | 跳过函数 | |
+| Step Out | 跳出函数 | |
+| Call Stack | 调用栈 | 函数调用链 |
+| Register | 寄存器 | CPU寄存器值 |
+| Memory View | 内存查看 | 查看内存内容 |
+| Variable Watch | 变量监视 | 观察变量值 |
+| Core Dump | 崩溃转储 | 崩溃时内存快照 |
+| Stack Trace | 堆栈跟踪 | 崩溃调用链 |
+| Log | 日志 | 调试输出 |
 
 ---
 
 ## 💡 学习计划建议 | Study Plan Suggestion
 
-1. **第一周**：把常用IDE操作词汇全部记住，做到看到英文就知道是什么意思
-2. **第二周**：熟悉硬件术语，结合手里的开发板对照学习
-3. **第三周**：掌握编程术语，写代码的时候遇到不懂的词查这个手册
-4. **后续**：遇到新的词汇随时添加到这个手册里，慢慢积累
+### 第一阶段：IDE入门（1-2周）
+1. 选择一个常用IDE（推荐IAR或KEIL）
+2. 熟悉常用菜单和快捷键
+3. 完成1-2个简单例程
+
+### 第二阶段：硬件基础（2-3周）
+1. 学习常见硬件术语
+2. 阅读芯片数据手册
+3. 理解外设工作原理
+
+### 第三阶段：编程进阶（3-4周）
+1. 掌握C语言嵌入式用法
+2. 学习调试技巧
+3. 完成综合项目
+
+### 第四阶段：持续学习
+1. 逐步增加英文文档阅读
+2. 参与开源项目
+3. 关注技术社区
 
 ---
 
-## 🔗 相关资源 | Related Resources
+## 📚 推荐学习资源
 
-- [IAR Embedded Workbench 官方文档](https://www.iar.com/)
-- [KEIL MDK 官方文档](https://www.keil.com/)
-- [VSCode 官方文档](https://code.visualstudio.com/docs)
-- [ESP-IDF 官方文档](https://docs.espressif.com/)
+### 官方文档
+- [IAR Embedded Workbench](https://www.iar.com/)
+- [KEIL MDK](https://www.keil.com/)
+- [STM32CubeIDE](https://www.st.com/)
+- [ESP-IDF](https://docs.espressif.com/)
+- [VSCode](https://code.visualstudio.com/)
+- [FreeRTOS](https://www.freertos.org/)
+
+### 在线学习
+- [ST Microelectronics](https://www.st.com/)
+- [Espressif Systems](https://www.espressif.com/)
+- [ARM Developer](https://developer.arm.com/)
+
+### 技术社区
+- [Stack Overflow](https://stackoverflow.com/)
+- [Reddit r/embedded](https://reddit.com/r/embedded)
+- [GitHub](https://github.com/)
+
+---
+
+## 🤝 贡献指南
+
+欢迎提交 PR 完善本手册！
+
+### 提交格式
+```
+feat: 添加Arduino IDE常用词汇
+fix: 修正XXX翻译错误
+docs: 更新学习计划
+```
 
 ---
 
 *Last updated: 2026-03-11*
+*Built with ❤️ for embedded developers*
 *Contributions welcome! Please submit PR on GitHub.*
