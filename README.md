@@ -668,3 +668,56 @@ docs: 更新学习计划
 *Last updated: 2026-03-11*
 *Built with ❤️ for embedded developers*
 *Contributions welcome! Please submit PR on GitHub.*
+
+---
+
+## 🐛 常见错误代码 | Common Error Codes
+
+在嵌入式开发中，常见的错误提示：
+
+| Error Code | 含义 | 常见场景 |
+|------------|------|----------|
+| undefined reference to `xxx` | 函数未定义 | 头文件未包含 / 函数未实现 |
+| linker command file error | 链接脚本错误 | 内存配置不正确 |
+| stack overflow | 栈溢出 | 递归调用过深 / 局部变量过大 |
+| hard fault on exception | 硬件异常 | 数组越界 / 空指针 / 非法访问 |
+| bus fault | 总线错误 | 访问未映射地址 |
+| memory management fault | 内存管理错误 | 访问非法内存区域 |
+| NMI fault | 不可屏蔽中断异常 | 看门狗超时 / 时钟失效 |
+| segmentation fault | 段错误 | 内存访问违规 |
+| timeout | 超时 | 通信无响应 / 硬件无应答 |
+| no such file or directory | 文件不存在 | 头文件路径错误 |
+| implicit declaration | 隐式声明 | 函数未在头文件声明 |
+| conflicting types | 类型冲突 | 函数声明与定义不匹配 |
+
+## 💡 开发技巧 | Development Tips
+
+### 调试技巧
+| 技巧 | 说明 |
+|------|------|
+| 使用RTT代替串口打印 | RTT速度更快，无需配置UART |
+| 使用断点+Watch窗口 | 直接观察变量值，比打印更直观 |
+| 查看汇编代码 | 理解编译器优化结果 |
+| 使用逻辑分析仪 | 调试GPIO/通信时序 |
+
+### 代码优化
+| 技巧 | 说明 |
+|------|------|
+| 使用static修饰函数 | 增强链接器优化，减少代码体积 |
+| 使用const修饰常量 | 节省RAM，编译器优化 |
+| 避免浮点数运算 | 嵌入式尽量用定点数 |
+| 使用位操作代替除法 | 提升执行效率 |
+
+### 项目结构
+| 技巧 | 说明 |
+|------|------|
+| 模块化设计 | 按功能划分目录 |
+| 头文件保护 | 防止重复包含 |
+| 统一命名规范 | 提高代码可读性 |
+| 写好注释 | 便于后续维护 |
+
+## 📞 技术支持 | Support
+
+- 提交 Issue: GitHub Issues
+- 交流讨论: 技术社群
+- 文档反馈: 欢迎提交 PR
